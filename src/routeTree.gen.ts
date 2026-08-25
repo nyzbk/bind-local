@@ -14,8 +14,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ImagesToPdfRouteImport } from './routes/images-to-pdf'
 import { Route as PdfToImagesRouteImport } from './routes/pdf-to-images'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
@@ -43,16 +41,6 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -65,8 +53,6 @@ export interface FileRoutesByFullPath {
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
@@ -75,8 +61,6 @@ export interface FileRoutesByTo {
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
@@ -86,31 +70,15 @@ export interface FileRoutesById {
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/images-to-pdf'
-    | '/pdf-to-images'
-    | '/privacy'
-    | '/robots.txt'
-    | '/sitemap.xml'
-    | '/terms'
+    '/' | '/about' | '/images-to-pdf' | '/pdf-to-images' | '/privacy' | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/images-to-pdf'
-    | '/pdf-to-images'
-    | '/privacy'
-    | '/robots.txt'
-    | '/sitemap.xml'
-    | '/terms'
+    '/' | '/about' | '/images-to-pdf' | '/pdf-to-images' | '/privacy' | '/terms'
   id:
     | '__root__'
     | '/'
@@ -118,8 +86,6 @@ export interface FileRouteTypes {
     | '/images-to-pdf'
     | '/pdf-to-images'
     | '/privacy'
-    | '/robots.txt'
-    | '/sitemap.xml'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
@@ -129,8 +95,6 @@ export interface RootRouteChildren {
   ImagesToPdfRoute: typeof ImagesToPdfRoute
   PdfToImagesRoute: typeof PdfToImagesRoute
   PrivacyRoute: typeof PrivacyRoute
-  RobotsDottxtRoute: typeof RobotsDottxtRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -171,20 +135,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -201,8 +151,6 @@ const rootRouteChildren: RootRouteChildren = {
   ImagesToPdfRoute: ImagesToPdfRoute,
   PdfToImagesRoute: PdfToImagesRoute,
   PrivacyRoute: PrivacyRoute,
-  RobotsDottxtRoute: RobotsDottxtRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
