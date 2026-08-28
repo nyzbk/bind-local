@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HowToRouteImport } from './routes/how-to'
 import { Route as ImagesToPdfRouteImport } from './routes/images-to-pdf'
 import { Route as PdfToImagesRouteImport } from './routes/pdf-to-images'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as UseCasesRouteImport } from './routes/use-cases'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,6 +28,21 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToRoute = HowToRouteImport.update({
+  id: '/how-to',
+  path: '/how-to',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImagesToPdfRoute = ImagesToPdfRouteImport.update({
@@ -46,56 +65,99 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseCasesRoute = UseCasesRouteImport.update({
+  id: '/use-cases',
+  path: '/use-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-to': typeof HowToRoute
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-to': typeof HowToRoute
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-to': typeof HowToRoute
   '/images-to-pdf': typeof ImagesToPdfRoute
   '/pdf-to-images': typeof PdfToImagesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/images-to-pdf' | '/pdf-to-images' | '/privacy' | '/terms'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    '/' | '/about' | '/images-to-pdf' | '/pdf-to-images' | '/privacy' | '/terms'
-  id:
-    | '__root__'
     | '/'
     | '/about'
+    | '/contact'
+    | '/faq'
+    | '/how-to'
     | '/images-to-pdf'
     | '/pdf-to-images'
     | '/privacy'
     | '/terms'
+    | '/use-cases'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/how-to'
+    | '/images-to-pdf'
+    | '/pdf-to-images'
+    | '/privacy'
+    | '/terms'
+    | '/use-cases'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/how-to'
+    | '/images-to-pdf'
+    | '/pdf-to-images'
+    | '/privacy'
+    | '/terms'
+    | '/use-cases'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  HowToRoute: typeof HowToRoute
   ImagesToPdfRoute: typeof ImagesToPdfRoute
   PdfToImagesRoute: typeof PdfToImagesRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  UseCasesRoute: typeof UseCasesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -112,6 +174,27 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to': {
+      id: '/how-to'
+      path: '/how-to'
+      fullPath: '/how-to'
+      preLoaderRoute: typeof HowToRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/images-to-pdf': {
@@ -142,16 +225,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-cases': {
+      id: '/use-cases'
+      path: '/use-cases'
+      fullPath: '/use-cases'
+      preLoaderRoute: typeof UseCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  HowToRoute: HowToRoute,
   ImagesToPdfRoute: ImagesToPdfRoute,
   PdfToImagesRoute: PdfToImagesRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  UseCasesRoute: UseCasesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

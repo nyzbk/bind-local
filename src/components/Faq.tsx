@@ -1,9 +1,9 @@
 import { FAQ } from "@/lib/constants";
 
-export function Faq() {
+export function Faq({ heading = "Questions" }: { heading?: string }) {
   return (
     <section className="mt-14">
-      <h2 className="text-xl font-semibold tracking-tight">Questions</h2>
+      <h2 className="text-xl font-semibold tracking-tight">{heading}</h2>
       <div className="mt-4 divide-y divide-border rounded-[12px] border border-border bg-surface">
         {FAQ.map((item) => (
           <details key={item.q} className="group px-4 py-1">
