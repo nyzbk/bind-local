@@ -127,7 +127,10 @@ function HowToPage() {
           failed to decode (truncated JPEG, odd color profile) — remove that row and bind again. A PDF that never
           shows a page count is not a PDF Bind can parse; re-export from the original app. More edge cases live in
           the <Link to="/faq">FAQ</Link>. Practical stacks (receipts, school, print) are in{" "}
-          <Link to="/use-cases">use cases</Link>.
+          <Link to="/use-cases">use cases</Link>. If the job is getting the PDF off an iPhone into Files, start at{" "}
+          <Link to="/iphone">iPhone</Link>. If twelve chat photos are standing in for one document, start at{" "}
+          <Link to="/whatsapp">WhatsApp</Link>. If Gmail swapped the attachment for a Drive link, start at{" "}
+          <Link to="/email">email</Link>.
         </p>
       </Prose>
     </SiteShell>
