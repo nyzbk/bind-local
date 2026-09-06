@@ -16,14 +16,15 @@ export const MAX_PAGE_POINTS = 14400;
 export const ACCEPT_IMAGES = ".jpg,.jpeg,.png,.webp,.bmp,.gif,image/jpeg,image/png,image/webp,image/bmp,image/gif";
 export const ACCEPT_PDF = ".pdf,application/pdf";
 
-export const FAQ = [
+export type FaqItem = { q: string; a: string };
+export const FAQ: readonly FaqItem[] = [
   {
     q: "Does Bind upload my files to a server?",
     a: "No. Conversion runs inside this browser tab with pdf-lib, pdf.js and the Canvas API. Images and PDFs are never posted to Bind’s hosting, never stored in a cloud bucket, and never sent to a conversion API. If you disconnect after the page has loaded, the converter still works. That is the point of a private tool: a scan of a passport, a medical form or a lease can become a PDF without leaving the device that photographed it.",
   },
   {
     q: "Do I need an account or a daily limit?",
-    a: "No account, no email gate, no watermark, no artificial cap on how many files you convert. The only ceiling is the memory of the browser you are using. A recent phone handles a few dozen photos without drama. A 200-page PDF at 3× scale on an older iPad may stall — lower the scale or split the range. We do not throttle successful jobs to sell a paid plan.",
+    a: "No account, no email gate, no watermark, no artificial cap on how many files you convert. The only ceiling is the memory of the browser you are using. A recent phone handles a few dozen photos without drama. A 200-page PDF at 3\u00d7 scale on an older iPad may stall — lower the scale or split the range. We do not throttle successful jobs to sell a paid plan.",
   },
   {
     q: "Which image formats can I turn into a PDF?",
@@ -35,15 +36,15 @@ export const FAQ = [
   },
   {
     q: "Can I extract only some pages from a PDF?",
-    a: "Yes. Leave the control on all pages, or type a range such as 1-3,5,8-10. Spaces are ignored. Out-of-range numbers are dropped rather than crashing the job. Each selected page is rasterized at the scale you pick (1×, 2× or 3×) and saved as PNG, JPEG or WebP. Download one page or a ZIP of the set. Encrypted or broken PDFs surface an error instead of a blank ZIP.",
+    a: "Yes. Leave the control on all pages, or type a range such as 1-3,5,8-10. Spaces are ignored. Out-of-range numbers are dropped rather than crashing the job. Each selected page is rasterized at the scale you pick (1\u00d7, 2\u00d7 or 3\u00d7) and saved as PNG, JPEG or WebP. Download one page or a ZIP of the set. Encrypted or broken PDFs surface an error instead of a blank ZIP.",
   },
   {
     q: "PNG, JPEG or WebP — which should I export?",
-    a: "PNG is lossless and the right default for text, UI screenshots, stamps and signatures. JPEG is smaller and fine for photographs; pick a quality that still reads. WebP is usually smaller than JPEG at similar visual quality and works in modern browsers and many CMS pipelines, but some print shops still want JPEG or PNG. Scale multiplies pixels: 2× of an A4 page is already a large PNG. Start at 2× PNG for documents you will OCR later; drop to 1× JPEG for a quick preview pack.",
+    a: "PNG is lossless and the right default for text, UI screenshots, stamps and signatures. JPEG is smaller and fine for photographs; pick a quality that still reads. WebP is usually smaller than JPEG at similar visual quality and works in modern browsers and many CMS pipelines, but some print shops still want JPEG or PNG. Scale multiplies pixels: 2\u00d7 of an A4 page is already a large PNG. Start at 2\u00d7 PNG for documents you will OCR later; drop to 1\u00d7 JPEG for a quick preview pack.",
   },
   {
     q: "Why does a page look softer than the original PDF?",
-    a: "A PDF page is often vectors and fonts. Bind rasterizes that page into pixels. At 1× the pixel grid may be too coarse for small type. Raise scale to 2× or 3×, export PNG, and avoid stretching. Scanned PDFs that are already bitmaps cannot gain detail Bind never had — you only choose how large to paint the existing bitmap. If a font looks wrong, the file may use a subsetted font pdf.js cannot reconstruct; try a different PDF export from the original app.",
+    a: "A PDF page is often vectors and fonts. Bind rasterizes that page into pixels. At 1\u00d7 the pixel grid may be too coarse for small type. Raise scale to 2\u00d7 or 3\u00d7, export PNG, and avoid stretching. Scanned PDFs that are already bitmaps cannot gain detail Bind never had — you only choose how large to paint the existing bitmap. If a font looks wrong, the file may use a subsetted font pdf.js cannot reconstruct; try a different PDF export from the original app.",
   },
   {
     q: "Does Bind work on iPhone and iPad?",
@@ -69,4 +70,77 @@ export const FAQ = [
     q: "Who operates Bind and how do I get support?",
     a: "Bind is a free utility from Ultimatum. There is no ticket portal and no guaranteed SLA — it is a browser page, not a hosted conversion API. For a broken page, a policy question or a copyright notice, email ultaultimatum@gmail.com from the Contact page. Do not attach passports or medical scans to that email; if the converter failed, describe the browser, page count and the error text instead of sending the file.",
   },
-] as const;
+  {
+    q: "Will the bound PDF appear in my iPhone Photos album?",
+    a: "No. Photos is for stills and Live Photos. A PDF is a Files object. After Bind, save into Files or iCloud Drive. Recents in Photos still holds the original JPEGs, not the document you just made.",
+  },
+  {
+    q: "If I send the pages as WhatsApp photos, is that the same as sending the PDF?",
+    a: "No. Photo send recodes frames. Page 2–12 may never leave as a document. Send the PDF as a document if the other person must keep the page order. Bind does not sit inside WhatsApp.",
+  },
+  {
+    q: "Should I email the PDF or the ZIP of extracted pages?",
+    a: "Email the PDF when the recipient asked for a document. Email extracted JPEGs only when a portal demands \u201cJPG of page 3\u201d. A 3\u00d7 PNG ZIP of a long report will blow past Gmail\u2019s 25 MB attachment cap and become a Drive link.",
+  },
+  {
+    q: "Does Bind merge two PDFs or strip GPS from the photos?",
+    a: "No. Merge/split/compress is a different tool. GPS/EXIF is a different tool. Bind\u2019s job is pages from pictures and pictures from pages in this tab.",
+  },
+];
+
+export const iphoneFaq: readonly FaqItem[] = [
+  {
+    q: "Safari showed the PDF and Files is empty. Did Bind fail?",
+    a: "Often the blob opened in a preview tab. Use Share \u2192 Save to Files. Then open that Files object. An on-screen preview is not a saved document.",
+  },
+  {
+    q: "Can I pick HEIC from Camera Roll and bind?",
+    a: "Not in Bind v1. Convert HEIC to JPEG first, then drop the JPEG. Conversion is not a PDF. Order the JPEGs after conversion.",
+  },
+  {
+    q: "Does Add to Home Screen make Bind a native app that writes Photos?",
+    a: "No. It is still this website. Output is still a file you save into Files.",
+  },
+  {
+    q: "iCloud Photos uploaded my receipts. Is the PDF in iCloud Photos too?",
+    a: "Only if you saved the PDF into a Photos-backed place, which you usually cannot. Save the PDF to Files / iCloud Drive. The album originals are still JPEGs.",
+  },
+];
+
+export const whatsappFaq: readonly FaqItem[] = [
+  {
+    q: "They said they got one blurry photo. Where are the other pages?",
+    a: "You sent a photo, not a document. WhatsApp recoded one frame. Send the PDF as a document, or extract pages and send those files on purpose.",
+  },
+  {
+    q: "Is send-as-document safer for quality?",
+    a: "It is closer to the bytes you picked. Those bytes must already be the Bind download. Document send will also ship a huge scan if you picked the wrong file.",
+  },
+  {
+    q: "WhatsApp Desktop grabbed a folder of JPEGs. Is that a PDF?",
+    a: "No. That is a stack of pictures. Bind first, then attach the PDF from Downloads.",
+  },
+  {
+    q: "Status or View once \u2014 does that bind pages?",
+    a: "No. Those are delivery modes. They do not create a multipage PDF and they do not rewrite Files.",
+  },
+];
+
+export const emailFaq: readonly FaqItem[] = [
+  {
+    q: "Gmail turned my PDF into a Drive link. Did Bind break?",
+    a: "Gmail\u2019s 25 MB attachment cap did. Official help: if attachments exceed 25 MB, Gmail removes them and inserts a Drive link. Shrink pages, extract a range, or send fewer images. Bind does not talk to Drive.",
+  },
+  {
+    q: "The clerk wants JPG of page 3, not a PDF. Do I still mail the PDF?",
+    a: "No. Use PDF to Images, range 3, JPEG or PNG, then attach that still \u2014 or upload it in the portal. Mailing the whole PDF is the wrong object.",
+  },
+  {
+    q: "Is a ZIP of 3\u00d7 PNG pages a good email?",
+    a: "Rarely. It is often larger than the PDF and blows the cap. Mail the PDF, or extract only the pages they named, at 1\u00d7 or 2\u00d7.",
+  },
+  {
+    q: "Does Bind send the email for me?",
+    a: "No. It writes a blob in this tab. You attach that blob in Mail. Closing the tab discards the blob if you never saved.",
+  },
+];
