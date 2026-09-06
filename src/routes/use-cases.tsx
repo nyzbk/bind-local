@@ -84,7 +84,10 @@ function UseCasesPage() {
           400-page scanned books on a phone. HEIC bursts from a wedding. Merging two PDFs. Compressing a 80 MB
           scan for email. Filling IRS-style forms. Those fail or they are the wrong product. Keep Bind for the
           hinge: pictures become pages, pages become pictures, on this device. Settings walkthrough:{" "}
-          <Link to="/how-to">how-to</Link>. Limits: <Link to="/faq">FAQ</Link>.
+          <Link to="/how-to">how-to</Link>. Limits: <Link to="/faq">FAQ</Link>. Stacks stay stacks. The delivery
+          pipe is a different page: <Link to="/iphone">iPhone Files vs Photos</Link>,{" "}
+          <Link to="/whatsapp">WhatsApp photos vs one PDF</Link>,{" "}
+          <Link to="/email">email one PDF vs a ZIP of pages</Link>.
         </p>
       </Prose>
     </SiteShell>
