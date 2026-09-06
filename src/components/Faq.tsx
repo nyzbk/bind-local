@@ -1,11 +1,18 @@
-import { FAQ } from "@/lib/constants";
+import { FAQ, type FaqItem } from "@/lib/constants";
 
-export function Faq({ heading = "Questions" }: { heading?: string }) {
+export function Faq({
+  heading = "Questions",
+  items,
+}: {
+  heading?: string;
+  items?: readonly FaqItem[];
+}) {
+  const list = items && items.length > 0 ? items : FAQ;
   return (
     <section className="mt-14">
       <h2 className="text-xl font-semibold tracking-tight">{heading}</h2>
       <div className="mt-4 divide-y divide-border rounded-[12px] border border-border bg-surface">
-        {FAQ.map((item) => (
+        {list.map((item) => (
           <details key={item.q} className="group px-4 py-1">
             <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-2 text-sm font-medium">
               {item.q}

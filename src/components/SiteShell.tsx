@@ -7,17 +7,20 @@ import { APP_NAME } from "@/lib/constants";
 import { CONTACT_EMAIL } from "@/lib/seo";
 
 const NAV = [
-  { to: "/images-to-pdf" as const, label: "Images to PDF", hideOnMobile: true },
-  { to: "/pdf-to-images" as const, label: "PDF to Images", hideOnMobile: true },
-  { to: "/how-to" as const, label: "How to", hideOnMobile: true },
+  { to: "/how-to" as const, label: "How to", hideOnMobile: false },
+  { to: "/iphone" as const, label: "iPhone", hideOnMobile: false },
+  { to: "/whatsapp" as const, label: "WhatsApp", hideOnMobile: true },
+  { to: "/email" as const, label: "Email", hideOnMobile: true },
   { to: "/faq" as const, label: "FAQ", hideOnMobile: false },
-  { to: "/about" as const, label: "About", hideOnMobile: false },
 ];
 
 const FOOTER = [
   { to: "/images-to-pdf" as const, label: "Images to PDF" },
   { to: "/pdf-to-images" as const, label: "PDF to Images" },
   { to: "/how-to" as const, label: "How to" },
+  { to: "/iphone" as const, label: "iPhone" },
+  { to: "/whatsapp" as const, label: "WhatsApp" },
+  { to: "/email" as const, label: "Email" },
   { to: "/use-cases" as const, label: "Use cases" },
   { to: "/faq" as const, label: "FAQ" },
   { to: "/contact" as const, label: "Contact" },
