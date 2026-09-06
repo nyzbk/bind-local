@@ -74,6 +74,12 @@ export function HomeCopy() {
         you convert.
       </p>
       <p>
+        Device ceilings:{" "}
+        <Link to="/iphone">iPhone Files vs Photos</Link>,{" "}
+        <Link to="/whatsapp">WhatsApp photos vs one PDF</Link>,{" "}
+        <Link to="/email">email one PDF vs a ZIP of pages</Link>.
+      </p>
+      <p>
         Out of scope, so you do not waste a tap: HEIC from iPhone Camera (convert first), PDF merge/split/compress,
         electronic signatures, form filling, OCR, CMYK press profiles, and batch jobs measured in gigabytes. Those
         are real needs. They are not this tool. The honest boundary is how Bind stays small enough to run in Safari
