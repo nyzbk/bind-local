@@ -26,6 +26,9 @@ export function pageHead({
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Bind" },
+      { property: "og:image", content: `${SITE_ORIGIN}/og.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_ORIGIN}/og.jpg` },
     ],
     links: [{ rel: "canonical", href: url }],
   };

@@ -78,4 +78,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://bind-local.vercel.app/llms.txt</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>

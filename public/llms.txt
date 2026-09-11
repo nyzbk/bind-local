@@ -1,0 +1,37 @@
+# Bind
+
+> JPG/PNG/WebP to a multipage PDF, or PDF pages to images. Files never leave this browser.
+
+The public origin is https://bind-local.vercel.app. Operated by Ultimatum. Contact ultaultimatum@gmail.com.
+
+## Tools
+
+* [Bind](https://bind-local.vercel.app) — Images ↔ PDF in this tab.
+* [Images to PDF](https://bind-local.vercel.app/images-to-pdf) — Stack photos into one packet.
+* [PDF to images](https://bind-local.vercel.app/pdf-to-images) — Pages out as PNG/JPEG/WebP.
+
+## Guides
+
+* [How to](https://bind-local.vercel.app/how-to) — Both directions.
+* [Email](https://bind-local.vercel.app/email) — Size of the packet.
+* [iPhone](https://bind-local.vercel.app/iphone) — Files vs Photos.
+* [WhatsApp](https://bind-local.vercel.app/whatsapp) — Document vs photo.
+* [Use cases](https://bind-local.vercel.app/use-cases) — Lease, ID, deck.
+* [FAQ](https://bind-local.vercel.app/faq) — Privacy.
+
+## Site pages
+
+* [About](https://bind-local.vercel.app/about) — Operator and what this tool refuses to be.
+* [Contact](https://bind-local.vercel.app/contact) — ultaultimatum@gmail.com
+* [Privacy](https://bind-local.vercel.app/privacy) — Bytes stay in the tab.
+* [Terms](https://bind-local.vercel.app/terms) — Not a studio, not a host.
+* [FAQ](https://bind-local.vercel.app/faq) — Short answers.
+
+## Site
+
+* [Sitemap](https://bind-local.vercel.app/sitemap.xml)
+* [llms.txt](https://bind-local.vercel.app/llms.txt) — This file.
+
+## Not on this origin
+
+* Bytes stay in the tab. There is no conversion API and no `/blogs/` cluster.

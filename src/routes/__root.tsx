@@ -12,6 +12,13 @@ export const Route = createRootRoute({
       { title: `${APP_NAME} — ${APP_TAGLINE} Online Free · No Upload` },
       { name: "description", content: APP_DESCRIPTION },
       { name: "theme-color", content: "#F7F6F3" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: 'Bind' },
+      { property: "og:image", content: "https://bind-local.vercel.app/og.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://bind-local.vercel.app/og.jpg" },
       { name: "google-adsense-account", content: ADSENSE_CLIENT },
     ],
     links: [
