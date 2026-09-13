@@ -29,7 +29,15 @@ import {
 type PdfResult = { kind: "pdf"; blob: Blob; name: string; pages: number };
 type ImagesResult = { kind: "images"; items: ExtractedImage[]; zipName: string };
 
-export function BindApp({ mode }: { mode: BindMode }) {
+export function BindApp({
+  mode,
+  heroTitle,
+  heroBody,
+}: {
+  mode: BindMode;
+  heroTitle?: string;
+  heroBody?: string;
+}) {
   const [images, setImages] = useState<ImageItem[]>([]);
   const [pdf, setPdf] = useState<PdfItem | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -232,15 +240,20 @@ export function BindApp({ mode }: { mode: BindMode }) {
   }
 
   const hero =
-    mode === "images-to-pdf"
+    heroTitle != null
       ? {
-          title: "Images to PDF — free, private, no upload",
-          body: "Bind photos into a clean multipage PDF. Page size, margins and fit stay in your control. Files never leave this device.",
+          title: heroTitle,
+          body: heroBody ?? "Files never leave this device. No upload, no signup, no watermark.",
         }
-      : {
-          title: "PDF to images — extract pages in the browser",
-          body: "Turn PDF pages into PNG, JPEG or WebP. Pick a range, scale and download a ZIP. No account, no watermark.",
-        };
+      : mode === "images-to-pdf"
+        ? {
+            title: "Images to PDF — free, private, no upload",
+            body: "Bind photos into a clean multipage PDF. Page size, margins and fit stay in your control. Files never leave this device.",
+          }
+        : {
+            title: "PDF to images — extract pages in the browser",
+            body: "Turn PDF pages into PNG, JPEG or WebP. Pick a range, scale and download a ZIP. No account, no watermark.",
+          };
 
   return (
     <div className="grid gap-6">
