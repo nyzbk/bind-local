@@ -5,9 +5,8 @@ export const APP_DESCRIPTION =
 
 export const ADSENSE_CLIENT = "ca-pub-7636435144500691";
 export const AGENCY_NAME = "Ultimatum";
-export const AGENCY_URL =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_AGENCY_URL) ||
-  "https://ultimatum.studio";
+export const HUB_URL = "https://ultimatum-hub.vercel.app/";
+export const AGENCY_URL = HUB_URL;
 
 export const MEMORY_WARN_BYTES = 80 * 1024 * 1024;
 export const MAX_CANVAS_EDGE = 4096;
