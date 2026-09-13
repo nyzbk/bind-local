@@ -1,4 +1,4 @@
-import { APP_DESCRIPTION, APP_NAME, FAQ } from "@/lib/constants";
+import { APP_DESCRIPTION, APP_NAME, FAQ, HUB_URL } from "@/lib/constants";
 import { CONTACT_EMAIL, SITE_ORIGIN, canonicalUrl } from "@/lib/seo";
 
 type Props = {
@@ -20,6 +20,7 @@ export function JsonLd({ path = "/", title, includeFaq = true }: Props) {
         publisher: {
           "@type": "Organization",
           name: "Ultimatum",
+          url: HUB_URL,
           email: CONTACT_EMAIL,
         },
       },

@@ -79,6 +79,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <a href={`mailto:${CONTACT_EMAIL}`} className="min-h-11 inline-flex items-center hover:text-ink">
               {CONTACT_EMAIL}
             </a>
+            <a
+              href="https://ultimatum-hub.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="min-h-11 inline-flex items-center hover:text-ink"
+            >
+              Hub
+            </a>
             <span className="font-mono text-xs">Files stay on this device</span>
           </nav>
         </div>

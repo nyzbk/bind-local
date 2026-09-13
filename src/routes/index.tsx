@@ -23,7 +23,11 @@ function Home() {
   return (
     <SiteShell>
       <JsonLd path="/" title="Bind — Images to PDF & PDF to Images" includeFaq />
-      <BindApp mode="images-to-pdf" />
+      <BindApp
+        mode="images-to-pdf"
+        heroTitle="Images to PDF and PDF to images — in this tab"
+        heroBody="Two jobs, one origin. Stack photos into a multipage PDF, or extract PDF pages as PNG, JPEG or WebP. Switch direction below. Files never leave this device."
+      />
       <HowItWorks />
       <AdUnit slot="mid" className="mt-10" />
       <HomeCopy />
